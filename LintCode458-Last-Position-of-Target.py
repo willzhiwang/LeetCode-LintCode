@@ -4,25 +4,27 @@ class Solution:
     @param target: An integer
     @return: An integer
     """
+
     def lastPosition(self, nums, target):
         # write your code here
-        if target is None:
+        if not nums or target is None:
             return -1
-        start=0
-        end=len(nums)
-        while (start+1<end):
-            mid = start + (end-start)
-            if (nums[mid] > target):
-                end = mid
-            if (nums[mid] < target):
+        # self.target = target
+        start = 0
+        end = len(nums) - 1
+        while start + 1 < end:
+            # mid = start + (end - start) // 2
+            mid = (start + end) // 2
+            if nums[mid] < target:
                 start = mid
+            elif nums[mid] > target:
+                end = mid
             else:
                 start = mid
-            self.checktarget( target, start, end)
-    def checktarget (self, target, start, end):
-        if (target == end):
+
+        if nums[end] == target:
             return end
-        elif (target == start ):
+        elif nums[start] == target:
             return start
         else:
-            return -1;
+            return -1 
