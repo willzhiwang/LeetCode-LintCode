@@ -10,7 +10,7 @@ class Solution:
             return -1
         start = 0
         end = len(nums) - 1
-        while start + 1 < end:
+        while (start + 1 < end):
             mid = (end + start) // 2
             if nums[mid] < nums[end]:
                 end = mid

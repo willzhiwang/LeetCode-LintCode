@@ -16,4 +16,7 @@ class Solution:
                     islands += 1
         return islands
     def bfs(self, grid, i, j, visited):
-
+        queue = deque ([(i,j)])
+        visited.add((i,j))
+        while queue:
+            i,j
